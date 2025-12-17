@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io("https://chatting-app-9y6r.onrender.com");
 let myUsername = "";
 
 // Send a message
@@ -45,4 +45,5 @@ socket.on("receive_message", function(data) {
 
     // Scroll to the bottom automatically
     chatBox.scrollTop = chatBox.scrollHeight;
+
 });
