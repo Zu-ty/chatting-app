@@ -13,6 +13,7 @@ def handle_send_message(data):
     print("receieved message: ",data['message'])
     emit('receive_message',data, broadcast=True)
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    socketio.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
-    socketio.run(app, debug=False)
+
