@@ -1,4 +1,4 @@
-const socket = io("https://chatting-app-9y6r.onrender.com");
+const socket = io("https://zuu-chat.onrender.com");
 let myUsername = "";
 
 // Send a message
@@ -47,3 +47,4 @@ socket.on("receive_message", function(data) {
     chatBox.scrollTop = chatBox.scrollHeight;
 
 });
+
