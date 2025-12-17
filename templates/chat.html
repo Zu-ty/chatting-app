@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Socket.IO Chat</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chat-container {
+            width: 360px;
+            height: 520px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: #4f46e5;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        #chat-box {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            background: #f9fafb;
+        }
+
+        .input-area {
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background: #fff;
+        }
+
+        .input-area input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 6px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .input-area button {
+            width: 100%;
+            padding: 10px;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        .input-area button:hover {
+            background: #4338ca;
+        }
+
+        /* Message styling used by JS classes */
+        .chat-message {
+            max-width: 75%;
+            padding: 8px 12px;
+            margin: 6px 0;
+            border-radius: 10px;
+            font-size: 14px;
+            word-wrap: break-word;
+        }
+
+        .me {
+            background: #dbeafe;
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .other {
+            background: #dcfce7;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .username {
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 3px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="chat-container">
+
+    <div class="chat-header">
+        💬 Live Chat
+    </div>
+
+    <div id="chat-box"></div>
+
+    <div class="input-area">
+        <input id="usernameInput" placeholder="Your name" />
+        <input id="messageInput" placeholder="Type a message..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+</div>
+
+<script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
